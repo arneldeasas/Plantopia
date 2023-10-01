@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "firebase": "^10.4.0",
+    "jsonwebtoken": "^9.0.2",
+    "next": "latest",
     "react": "latest",
-    "react-dom": "latest",
-    "next": "latest"
+    "react-dom": "latest"
   },
   "devDependencies": {
     "autoprefixer": "latest",
