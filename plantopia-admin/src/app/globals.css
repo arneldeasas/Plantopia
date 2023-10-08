@@ -19,3 +19,24 @@
 body {
   @apply bg-white
 }
+input{
+  @apply font-semibold text-primary
+}
+.input-container{
+  @apply duration-200 ease-in outline-none;
+}
+input:active{
+  @apply outline-none;
+}
+input::placeholder{
+  @apply text-primary/70 font-semibold capitalize
+}
+input:focus{
+  @apply outline-none 
+}
+.input-container:focus-within{
+  @apply bg-bgprimary/10
+}
+i{
+  @apply flex items-center w-fit
+}

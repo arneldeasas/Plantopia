@@ -42,7 +42,6 @@ export const sendEmail = async (emailType, email, userId) => {
             </td>
      
     </table></a>
-    =
         <p style="margin-top: 10px; font-size: 14px;">
             If you did not initiate this request, please ignore this email.
         </p>
