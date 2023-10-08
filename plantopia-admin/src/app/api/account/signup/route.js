@@ -6,14 +6,21 @@ import { nanoid } from "nanoid";
 var bcrypt = require('bcryptjs');
 export async function POST(request) {
    try {
-      const {email,password,confirmPassword} = await request.json()
+      const {email,password,confirmPassword,name} = await request.json()
       const docSnaps = await getDocs(query(collection(db,'users'),where('email','==',email)))
+      let uid;
       if(!docSnaps.empty){
-         throw new Error('Email already registered.')
+         if(docSnaps.docs[0].data()?.dateVerified){
+            return NextResponse.json({ message: 'Email address is already in use.' }, { status: 400 });
+         }
+         uid=docSnaps.docs[0].id
+      }else{
+         uid = nanoid()
       }
       const hash = bcrypt.hashSync(password,10)
-      const uid = nanoid()
+     
       setDoc(doc(db,'users',uid),{
+         name,
          email,
          hash,
          forgotPasswordToken:'',
