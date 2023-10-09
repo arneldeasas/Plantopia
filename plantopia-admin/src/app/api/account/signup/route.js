@@ -32,7 +32,7 @@ export async function POST(request) {
       }).then(async()=>{
          const mailRes = await sendEmail('VERIFY',email,uid)
          console.log(mailRes);
-      }),then(()=>{
+      }).then(()=>{
          return NextResponse.json({email,password,confirmPassword},{status:200})
       })
       
