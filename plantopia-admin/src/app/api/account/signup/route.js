@@ -19,7 +19,7 @@ export async function POST(request) {
       }
       const hash = bcrypt.hashSync(password,10)
      
-      setDoc(doc(db,'users',uid),{
+      await setDoc(doc(db,'users',uid),{
          name,
          email,
          hash,
