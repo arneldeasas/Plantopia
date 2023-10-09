@@ -32,10 +32,8 @@ export async function POST(request) {
       }).then(async()=>{
          const mailRes = await sendEmail('VERIFY',email,uid)
          console.log(mailRes);
-      }).then(()=>{
-         return NextResponse.json({email,password,confirmPassword},{status:200})
       })
-      
+      return NextResponse.json({email,password,confirmPassword},{status:200})
    } catch (error) {
       return NextResponse.json({ message: error.message }, { status: 400 });
    }
